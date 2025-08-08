@@ -1,34 +1,26 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Wow Digital</title>
+    <title>Digital Stock - Inventario</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <img src="logo.jpg" alt="Logo" class="logo" style="text-align: center;">
+
     <div class="container">
-        <img src="logo.jpg" alt="Logo Stock Wow Digital" class="logo">
-        <h1>STOCK WOW DIGITAL</h1>
-    </div>
-</body>
-</html>
+        <header>
+            <h1>DISPONIBILIDAD DE PRODUCTOS</h1>
+        </header>
+
+        <section class="charts">
+            <h2>Gráficos</h2>
             
             <div class="search-section">
                 <h3>Búsqueda</h3>
-                ### Búsqueda
-
-</script>
-
-  </select>
-</div>
-                <ul>
-                    <li>Buscar por foto...</li>
-                    <li>Buscar por artículo o modelo...</li>
-                </ul>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Buscar por descripción..." onkeyup="filterProducts()">
+                </div>
             </div>
 
             <div class="stock-info">
@@ -38,7 +30,7 @@
         </section>
 
         <section class="inventory-table">
-            <table>
+            <table id="productTable">
                 <thead>
                     <tr>
                         <th>ARTÍCULO</th>
@@ -49,6 +41,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Todas tus filas de productos se mantienen igual -->
                     <tr>
                         <td>FAMI220</td>
                         <td>Freezer inclinado 220</td>
@@ -64,13 +57,20 @@
                         <td>$8,900</td>
                     </tr>
                     <tr>
-                       <td>FAMI555</td>
+                        <td>FAMI555</td>
                         <td>Freezer inclinado 555</td>
                         <td class="available">DISPONIBLE</td>
                         <td>$1,200,000</td>
                         <td>$10,900</td>
                     </tr>
                     <tr>
+                        <td>FAMV110MT</td>
+                        <td>Exhibidora 110MT</td>
+                        <td class="out-of-stock">AGOTADO</td>
+                        <td>$645,500</td>
+                        <td>$6,000</td>
+                    </tr>
+                     <tr>
                         <td>FAMV110MT</td>
                         <td>Exhibidora 110MT</td>
                         <td class=".out-of-stock">AGOTADO</td>
@@ -621,6 +621,27 @@
             </div>
         </section>
     </div>
+
     <script>
+        function filterProducts() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toUpperCase();
+            const table = document.getElementById('productTable');
+            const tr = table.getElementsByTagName('tr');
+
+            // Recorrer todas las filas de la tabla y ocultar las que no coincidan con la búsqueda
+            for (let i = 1; i < tr.length; i++) {
+                const td = tr[i].getElementsByTagName('td')[1]; // Buscar en la columna DESCRIPCIÓN (índice 1)
+                if (td) {
+                    const txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }       
+            }
+        }
+    </script>
 </body>
 </html>
