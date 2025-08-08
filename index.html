@@ -28,17 +28,38 @@
   </select>
 </div>
 
+<table id="stock-table">
+  <thead>
+    <tr>
+      <th>ARTÍCULO</th>
+      <th>DESCRIPCIÓN</th>
+      <th>STOCK</th>
+      <th>PRECIO CONTADO</th>
+      <th>PRECIO CUOTA DIARIA</th>
+    </tr>
+  </thead>
+</table>
+
 <script>
-  // Función para realizar la búsqueda
+  // Función mejorada con depuración
   function realizarBusqueda() {
+    console.log("Ejecutando búsqueda..."); // Mensaje de depuración
+    
     const searchTerm = document.getElementById('article-search').value.toLowerCase();
     const filterOption = document.getElementById('filter-option').value;
     
+    console.log("Término buscado:", searchTerm); // Depuración
+    console.log("Filtro seleccionado:", filterOption); // Depuración
+    
     const rows = document.querySelectorAll('#stock-table tbody tr');
+    
+    console.log("Filas encontradas:", rows.length); // Depuración
     
     rows.forEach(row => {
       const article = row.cells[0].textContent.toLowerCase();
       const stockStatus = row.cells[2].textContent.toLowerCase();
+      
+      console.log("Artículo:", article, "Estado:", stockStatus); // Depuración
       
       let matchesSearch = article.includes(searchTerm);
       let matchesFilter = true;
@@ -49,17 +70,38 @@
         matchesFilter = article.startsWith('fami');
       }
       
+      console.log("Coincide búsqueda:", matchesSearch, "Coincide filtro:", matchesFilter); // Depuración
+      
       row.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
     });
+    
+    console.log("Búsqueda completada"); // Depuración
   }
 
-  // Evento para input (búsqueda en tiempo real)
-  document.getElementById('article-search').addEventListener('input', realizarBusqueda);
-
-  // Evento para tecla Enter
-  document.getElementById('article-search').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-      realizarBusqueda();
+  // Eventos con manejo de errores
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('article-search');
+    
+    if(searchInput) {
+      // Búsqueda mientras escribe
+      searchInput.addEventListener('input', function() {
+        console.log("Input detectado");
+        realizarBusqueda();
+      });
+      
+      // Búsqueda al presionar Enter
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          console.log("Enter detectado");
+          e.preventDefault();
+          realizarBusqueda();
+        }
+      });
+    } else {
+      console.error("Elemento article-search no encontrado");
+    }
+  });
+</script>
     }
   });
 </script>
