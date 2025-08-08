@@ -625,5 +625,30 @@ Buscar por foto...
             </div>
         </section>
     </div>
+    <script>
+        document.getElementById('article-search').addEventListener('input', function(e) {
+  const searchTerm = e.target.value.toLowerCase();
+  const filterOption = document.getElementById('filter-option').value;
+  
+  // Filtrar la tabla de stock
+  const rows = document.querySelectorAll('#stock-table tbody tr');
+  
+  rows.forEach(row => {
+    const article = row.cells[0].textContent.toLowerCase();
+    const stockStatus = row.cells[2].textContent.toLowerCase();
+    
+    let matchesSearch = article.includes(searchTerm);
+    let matchesFilter = true;
+    
+    if(filterOption === 'available') {
+      matchesFilter = stockStatus === 'disponible';
+    } else if(filterOption === 'FAMI') {
+      matchesFilter = article.startsWith('fami');
+    }
+    
+    row.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
+  });
+});
+         <script>
 </body>
 </html>
