@@ -1,123 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stock de Productos - Wow Digital</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    .logo {
-      margin-top: 40px;
-    }
-    .logo img {
-      width: 160px;
-    }
-    .search-container {
-      margin: 20px;
-    }
-    .search-container input {
-      padding: 10px;
-      width: 200px;
-      margin: 5px;
-    }
-    .stock-indicator {
-      background-color: #28a745;
-      color: black;
-      display: inline-block;
-      padding: 10px;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    table {
-      width: 100%;
-      margin: 50px auto;
-      border-collapse: collapse;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: center;
-    }
-    th {
-      background-color: #004080;
-      color: white;
-    }
-    .stock-disponible {
-      background-color: #28a745;
-      color: black;
-      font-weight: bold;
-    }
-    .stock-poco {
-      background-color: #ffc107;
-      color: black;
-      font-weight: bold;
-    }
-    .stock-agotado {
-      background-color: #6c757d;
-      color: black;
-      font-weight: bold;
-    }
-    td[contenteditable="true"] {
-      background-color: #f8f9fa;
-      cursor: text;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Stock - Inventario</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="logo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Wow_Digital_logo.svg/1200px-Wow_Digital_logo.svg.png" alt="Wow Digital Logo">
-  </div>
+    <div class="container">
+        <header>
+            <h1>www.digitalstock.github.io/wwwdigitalstock/</h1>
+        </header>
 
-  <div class="search-container">
-    <input type="text" placeholder="Buscar por foto...">
-    <input type="text" placeholder="Buscar por artículo o modelo...">
-    <div class="stock-indicator">Porcentaje de stock disponible: 69%</div>
-  </div>
+        <section class="charts">
+            <h2>Gráficos</h2>
+            
+            <div class="search-section">
+                <h3>Búsqueda</h3>
+                <ul>
+                    <li>Buscar por foto...</li>
+                    <li>Buscar por artículo o modelo...</li>
+                </ul>
+            </div>
 
-  <table>
-    <tr>
-      <th>ARTÍCULO</th>
-      <th>DESCRIPCIÓN</th>
-      <th>COLOR</th>
-      <th>STOCK</th>
-      <th>PRECIO</th>
-    <tr>
-      <td contenteditable="true">FG_150DG</td>
-      <td contenteditable="true">Freezer 150 Litros</td>
-      <td contenteditable="true">BLANCO</td>
-      <td contenteditable="true" class="stock-disponible">DISPONIBLE</td>
-      <td contenteditable="true">$159,000.</td>
-    </tr>
-    <tr>
-      <td contenteditable="true">F_240DG</td>
-      <td contenteditable="true">Freezer 240 Litros</td>
-      <td contenteditable="true" class="stock-disponible">DISPONIBLE</td>
-      <td contenteditable="true">$33.539</td>
-    </tr>
-    <tr>
-      <td contenteditable="true">F.0001</td>
-      <td contenteditable="true">KING</td>
-      <td contenteditable="true">0947/4</td>
-      <td contenteditable="true">WOW KIT ACOLCHADO KING</td>
-      <td contenteditable="true">BLANCO</td>
-      <td contenteditable="true" class="stock-poco">POCO STOCK</td>
-      <td contenteditable="true">$37.021</td>
-    </tr>
-    <tr>
-      <td contenteditable="true">F.0002</td>
-      <td contenteditable="true">TWIN</td>
-      <td contenteditable="true">0947/1T</td>
-      <td contenteditable="true">WOW KIT ACOLCHADO TWIN</td>
-      <td contenteditable="true">GRIS CLARO</td>
-      <td contenteditable="true" class="stock-agotado">AGOTADO</td>
-      <td contenteditable="true">$25.416</td>
-    </tr>
-  </table>
+            <div class="stock-info">
+                <h3>Stock</h3>
+                <p class="stock-percentage">Porcentaje de stock disponible: 89%</p>
+            </div>
+        </section>
+
+        <section class="inventory-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ARTÍCULO</th>
+                        <th>DESCRIPCIÓN</th>
+                        <th>COLOR</th>
+                        <th>STOCK</th>
+                        <th>PRECIO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>FG_150DG</td>
+                        <td>Freezer 150 Litros</td>
+                        <td>BLANCO</td>
+                        <td class="available">DISPONIBLE</td>
+                        <td>$159,000</td>
+                    </tr>
+                    <tr>
+                        <td>F.0001</td>
+                        <td>WOW KIT ACOLCHADO QUEEN</td>
+                        <td>BLANCO</td>
+                        <td class="available">DISPONIBLE</td>
+                        <td>$33,539</td>
+                    </tr>
+                    <tr>
+                        <td>F.0001</td>
+                        <td>WOW KIT ACOLCHADO KING</td>
+                        <td>BLANCO</td>
+                        <td class="low-stock">POCO STOCK</td>
+                        <td>$37,021</td>
+                    </tr>
+                    <tr>
+                        <td>F.0002</td>
+                        <td>WOW KIT ACOLCHADO TWIN</td>
+                        <td>GRIS CLARO</td>
+                        <td class="out-of-stock">AGOTADO</td>
+                        <td>$25,416</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="stock-summary">
+            <div class="status-box available">
+                <strong>DISPONIBLE</strong>
+                <p>$33.539</p>
+            </div>
+            <div class="status-box low-stock">
+                <strong>POCO STOCK</strong>
+                <p>$37.021</p>
+            </div>
+            <div class="status-box out-of-stock">
+                <strong>AGOTADO</strong>
+                <p>$25.416</p>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
