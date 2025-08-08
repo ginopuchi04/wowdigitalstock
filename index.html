@@ -684,6 +684,15 @@
     }
     
     row.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
+      document.getElementById('article-search').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault(); // Evita cualquier comportamiento por defecto
+    realizarBusqueda();
+    // Opcional: agregar efecto visual
+    this.classList.add('search-executed');
+    setTimeout(() => this.classList.remove('search-executed'), 300);
+  }
+});
   });
 });
          <script>
