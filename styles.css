@@ -150,3 +150,7 @@ tr:nth-child(even) {
   padding: 8px;
   border-radius: 4px;
 }
+.search-executed {
+  box-shadow: 0 0 8px rgba(0, 150, 255, 0.6);
+  transition: box-shadow 0.3s ease;
+}
