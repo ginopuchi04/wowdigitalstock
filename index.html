@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock de Productos - Wow Digital</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .logo {
+      margin-top: 40px;
+    }
+    .logo img {
+      width: 160px;
+    }
+    .search-container {
+      margin: 20px;
+    }
+    .search-container input {
+      padding: 10px;
+      width: 200px;
+      margin: 5px;
+    }
+    .stock-indicator {
+      background-color: #28a745;
+      color: white;
+      display: inline-block;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    table {
+      width: 90%;
+      margin: 30px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #004080;
+      color: white;
+    }
+    .stock-disponible {
+      background-color: #28a745;
+      color: white;
+      font-weight: bold;
+    }
+    .stock-poco {
+      background-color: #ffc107;
+      color: black;
+      font-weight: bold;
+    }
+    .stock-agotado {
+      background-color: #6c757d;
+      color: white;
+      font-weight: bold;
+    }
+    td[contenteditable="true"] {
+      background-color: #f8f9fa;
+      cursor: text;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Wow_Digital_logo.svg/1200px-Wow_Digital_logo.svg.png" alt="Wow Digital Logo">
+  </div>
+
+  <div class="search-container">
+    <input type="text" placeholder="Buscar por foto...">
+    <input type="text" placeholder="Buscar por artículo o modelo...">
+    <div class="stock-indicator">Porcentaje de stock disponible: 69%</div>
+  </div>
+
+  <table>
+    <tr>
+      <th>FOTO</th>
+      <th>MEDIDA</th>
+      <th>ARTÍCULO</th>
+      <th>DESCRIPCIÓN</th>
+      <th>COLOR</th>
+      <th>STOCK</th>
+      <th>PRECIO</th>
+    </tr>
+    <tr>
+      <td contenteditable="true">F.0001</td>
+      <td contenteditable="true">TWIN</td>
+      <td contenteditable="true">0947/1T</td>
+      <td contenteditable="true">WOW KIT ACOLCHADO TWIN</td>
+      <td contenteditable="true">BLANCO</td>
+      <td contenteditable="true" class="stock-disponible">DISPONIBLE</td>
+      <td contenteditable="true">$25.416</td>
+    </tr>
+    <tr>
+      <td contenteditable="true">F.0001</td>
+      <td contenteditable="true">QUEEN</td>
+      <td contenteditable="true">0947/3Q</td>
+      <td contenteditable="true">WOW KIT ACOLCHADO QUEEN</td>
+      <td contenteditable="true">BLANCO</td>
+      <td contenteditable="true" class="stock-disponible">DISPONIBLE</td>
+      <td contenteditable="true">$33.539</td>
+    </tr>
+    <tr>
+      <td contenteditable="true">F.0001</td>
+      <td contenteditable="true">KING</td>
+      <td contenteditable="true">0947/4</td>
+      <td contenteditable="true">WOW KIT ACOLCHADO KING</td>
+      <td contenteditable="true">BLANCO</td>
+      <td contenteditable="true" class="stock-poco">POCO STOCK</td>
+      <td contenteditable="true">$37.021</td>
+    </tr>
+    <tr>
+      <td contenteditable="true">F.0002</td>
+      <td contenteditable="true">TWIN</td>
+      <td contenteditable="true">0947/1T</td>
+      <td contenteditable="true">WOW KIT ACOLCHADO TWIN</td>
+      <td contenteditable="true">GRIS CLARO</td>
+      <td contenteditable="true" class="stock-agotado">AGOTADO</td>
+      <td contenteditable="true">$25.416</td>
+    </tr>
+  </table>
+</body>
+</html>
